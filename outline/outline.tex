@@ -203,11 +203,13 @@ All hydrogen polymer chains dissociation curves were easily computed and yielded
 %INSERT FIGURES
 
 \subsubsection{Homonuclear diatomics}
-$Li_2$, $N_2$, $O_2$ and $F_2$ dissociations curves were relatively easily computed to obtain smooth results. For the larger systems ($N_2$, $O_2$ and $F_2$), some points yielded results that layed outside the curve; however, it was possible to recompute those points to get adequate results, thus these invalid results were attributed to bad convergence of the optimisation algorithm (CMA-ES, which has a stochastic nature).
+Smooth dissociations curves have been obtained for $Li_2$ and $F_2$, with preliminary results for $N_2$ and $O_2$ suggesting these curves should be obtained without significant hurdles as well.
+
+For the larger systems ($N_2$, $O_2$ and $F_2$), some points sometimes yielded results that layed outside the curve; however, it was possible to recompute those points to get adequate results, thus these invalid results were attributed to bad convergence of the optimisation algorithm (CMA-ES, which has a stochastic nature).
 
 %INSERT FIGURES
 
-The curves for $Be_2$ and $C_2$, however, consistently produced unexpected shoulders between the minimum and dissociation (see figures \ref{Be2_bad} and \ref{C2_bad}), whereas $B_2$ shows an unphysical double well (see figure \ref{B2_bad}).
+The curves for $Be_2$ and $C_2$, however, consistently produced unexpected shoulders between the minimum and dissociation (see figures \ref{Be2_bad} and \ref{C2_bad}), whereas $B_2$ shows an unphysical double well (see figure \ref{B2_bad}). Note that an avoided crossing is expected in the $C_2$ dissociation curve, but the shoulder obtained does not match the expected result quantitatively (the shoulder doesn't occur at the right interatomic distance) nor qualitatively (the shoulder does not match the shape expected for an avoided crossing).
 
 \begin{figure}[h]
   \includegraphics[width=\linewidth]{Be2.png}
@@ -224,19 +226,20 @@ The curves for $Be_2$ and $C_2$, however, consistently produced unexpected shoul
   \caption{OO-DOCI dissociation curve of $B_2$ in the STO-6G orbital basis}\label{B2_bad}
 \end{figure}
 
-Various alternatives for the initial guess for the orbitals have been used (with $B_2$ and $C_2$ specifically) to obtain better results :
+Various approaches have been attempted (with $B_2$ and $C_2$ specifically) to obtain better results :
 
 \begin{itemize}
+  \item Points were computed with a significantly higher maximum number of iterations for the CMA-ES algorithm.
   \item Points were computed reusing the orbital rotation of the previous point in the curve, approaching from both the right and the left.
-  \item Computations were done using DFT orbitals as an initial guess (using b3lyp, lda, pbe and pw91 functionals).
+  \item Computations were done using DFT orbitals as an initial guess (using B3lyp, LDA, PBE and PW91 functionals).
   \item Computations were done using CISD natural orbitals as an initial guess.
 \end{itemize}
 
-Unfortunately, non of these approaches helped in obtaining better dissociation curves, instead they all converged on the same results as the initial brute-force approach. 
+Unfortunately, none of these approaches helped in obtaining better dissociation curves, instead they all converged on the same results as the initial brute-force approach.
 
 \subsubsection{12-electron diatomics}
 
-Similarly to some of the homonuclear diatomics mentioned, all 12-electron dissociation curves present unexpected shoulders. The same approaches that had been attempted for $B_2$ and $C_2$ have been used with $B_N$ as well, to no avail.
+Similarly to some of the homonuclear diatomics mentioned, all 12-electron dissociation curves present shoulders. The same approaches that had been attempted for $B_2$ and $C_2$ have been used with $B_N$ as well, to no avail.
 
 \begin{figure}[h]
   \includegraphics[width=\linewidth]{BN.png}
@@ -247,13 +250,13 @@ Similarly to some of the homonuclear diatomics mentioned, all 12-electron dissoc
 
 \subsubsection{14-electron diatomics}
 
-Like for 12-electron systems, most 14-electron dissociation curves present unexpected shoulders. The one exception is $CN^-$, which yielded a smooth curve.
+Preliminary results indicate a smooth curve dissociation curve for 14-electron systems, although some curves present outlying points that require recomputation.
 
 %INSERT FIGURES
 
 \subsection{cc-pVDZ}
 \subsubsection{Hydrogen polymer chains}
-Computations underway.
+Computations underway. Preliminary results seem to produce a smooth dissociation curve.
 
 \subsubsection{Homonuclear diatomics}
 Computations underway.
@@ -264,7 +267,7 @@ Computations underway.
 \subsubsection{14-electron diatomics}
 Computations underway.
 
-One issue that arises when computing these dissociation curves (as well as those for $N_2$, $O_2$, $F_2$ and $Ne_2$) is that the maximal computation time allowed on some compute canada clusters is 7 days, but the computation of even a single point for systems with 14 electrons or more in the cc-pVDZ orbital basis takes more time than that. The cluster cedar allows for longer computations, but if the possibility of segmenting CMA-ES optimisation for a single point should be investigated and implemented if possible. 
+One issue that arises when computing these dissociation curves (as well as those for $N_2$, $O_2$, $F_2$ and $Ne_2$) is that the maximal computation time allowed on some compute canada clusters is 7 days, but the computation of even a single point for systems with 14 electrons or more in the cc-pVDZ orbital basis takes more time than that. The cluster cedar allows for longer computations, but the possibility of segmenting CMA-ES optimisation for a single point should be investigated and implemented if possible. 
 
 \section{Conclusions}
 
