@@ -203,30 +203,49 @@ All hydrogen polymer chains dissociation curves were easily computed and yielded
 %INSERT FIGURES
 
 \subsubsection{Homonuclear diatomics}
-Smooth dissociations curves have been obtained for $Li_2$ and $F_2$, with preliminary results for $N_2$ and $O_2$ suggesting these curves should be obtained without significant hurdles as well.
+Smooth dissociations curves have been obtained for $Li_2$ and $F_2$ (see figures \ref{Li2} and \ref{F2}), with preliminary results for $N_2$ and $O_2$ (see figure \ref{O2}) suggesting these curves should be obtained without significant hurdles as well.
 
-For the larger systems ($N_2$, $O_2$ and $F_2$), some points sometimes yielded results that layed outside the curve; however, it was possible to recompute those points to get adequate results, thus these invalid results were attributed to bad convergence of the optimisation algorithm (CMA-ES, which has a stochastic nature).
+For the larger systems ($N_2$, $O_2$ and $F_2$), some points sometimes yielded results that layed outside the curve. However, it has generally been possible to recompute those points to get adequate results, thus these invalid results were attributed to bad convergence of the optimisation algorithm (CMA-ES, which has a stochastic nature).
 
-%INSERT FIGURES
+\begin{figure}
+  \includegraphics[width=\linewidth]{Li2.png}
+  \caption{OO-DOCI dissociation curve of $Li_2$ in the STO-6G orbital basis}\label{Li2}
+\end{figure}
 
-The curves for $Be_2$ and $C_2$, however, consistently produced unexpected shoulders between the minimum and dissociation (see figures \ref{Be2_bad} and \ref{C2_bad}), whereas $B_2$ shows an unphysical double well (see figure \ref{B2_bad}). Note that an avoided crossing is expected in the $C_2$ dissociation curve, but the shoulder obtained does not match the expected result quantitatively (the shoulder doesn't occur at the right interatomic distance) nor qualitatively (the shoulder does not match the shape expected for an avoided crossing).
+\begin{figure}
+  \includegraphics[width=\linewidth]{F2.png}
+  \caption{OO-DOCI dissociation curve of $F_2$ in the STO-6G orbital basis}\label{F2}
+\end{figure}
 
-\begin{figure}[h]
+\begin{figure}
+  \includegraphics[width=\linewidth]{N2.png}
+  \caption{OO-DOCI dissociation curve of $N_2$ in the STO-6G orbital basis with a badly converged point}\label{N2}
+\end{figure}
+
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{O2.png}
+  \caption{Incomplete OO-DOCI dissociation curve of $O_2$ in the STO-6G orbital basis}\label{O2}
+\end{figure}
+
+The curves for $Be_2$, $B_2$ and $C_2$ however, consistently produced curves that aren't completely smooth throughout dissociation (see figures \ref{Be2} \ref{B2} and \ref{C2}). Specifically, $C_2$ presents an avoided crossing whereas $Be$ presents two, and $B_2$ actually produces a double-well. Before moving forward, it must be determined whether these avoided crossings are to be expected for OO-DOCI results in this basis or whether they indicate a failure of the orbital optimisation to converge on the correct orbital rotation.
+
+\begin{figure}
   \includegraphics[width=\linewidth]{Be2.png}
-  \caption{OO-DOCI dissociation curve of $Be_2$ in the STO-6G orbital basis}\label{Be2_bad}
+  \caption{OO-DOCI dissociation curve of $Be_2$ in the STO-6G orbital basis presenting two avoided crossings}\label{Be2}
 \end{figure}
 
-\begin{figure}[h]
-  \includegraphics[width=\linewidth]{C2.png}
-  \caption{OO-DOCI dissociation curve of $C_2$ in the STO-6G orbital basis}\label{C2_bad}
-\end{figure}
-
-\begin{figure}[h]
+\begin{figure}
   \includegraphics[width=\linewidth]{B2.png}
-  \caption{OO-DOCI dissociation curve of $B_2$ in the STO-6G orbital basis}\label{B2_bad}
+  \caption{OO-DOCI dissociation curve of $B_2$ in the STO-6G orbital basis presenting an avoided crossing in the form of a double potential well}\label{B2}
 \end{figure}
 
-Various approaches have been attempted (with $B_2$ and $C_2$ specifically) to obtain better results :
+\begin{figure}
+  \includegraphics[width=\linewidth]{C2.png}
+  \caption{OO-DOCI dissociation curve of $C_2$ in the STO-6G orbital basis presenting an avoided crossing}\label{C2}
+\end{figure}
+
+Various approaches have been attempted (with $B_2$ and $C_2$ specifically) to improve the optimisation's results :
 
 \begin{itemize}
   \item Points were computed with a significantly higher maximum number of iterations for the CMA-ES algorithm.
@@ -235,28 +254,65 @@ Various approaches have been attempted (with $B_2$ and $C_2$ specifically) to ob
   \item Computations were done using CISD natural orbitals as an initial guess.
 \end{itemize}
 
-Unfortunately, none of these approaches helped in obtaining better dissociation curves, instead they all converged on the same results as the initial brute-force approach.
+All these approaches converged on the same results as the initial brute-force attempt.
 
 \subsubsection{12-electron diatomics}
 
-Similarly to some of the homonuclear diatomics mentioned, all 12-electron dissociation curves present shoulders. The same approaches that had been attempted for $B_2$ and $C_2$ have been used with $B_N$ as well, to no avail.
+Similarly to some of the homonuclear diatomics mentioned, all 12-electron dissociation curves present avoided crossings (see figures \ref{LiF}, \ref{BeO}, \ref{BN}, \ref{CN+} and \ref{CO++}).
 
-\begin{figure}[h]
-  \includegraphics[width=\linewidth]{BN.png}
-  \caption{OO-DOCI dissociation curve of $BN$ in the STO-6G orbital basis}\label{BN_bad}
+\begin{figure}
+  \includegraphics[width=\linewidth]{LiF.png}
+  \caption{OO-DOCI dissociation curve of $LiF$ in the STO-6G orbital basis presenting an avoided crossing}\label{LiF}
 \end{figure}
 
-%INSERT FIGURES
+\begin{figure}
+  \includegraphics[width=\linewidth]{BeO.png}
+  \caption{OO-DOCI dissociation curve of $BeO$ in the STO-6G orbital basis presenting two avoided crossings}\label{BeO}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{BN.png}
+  \caption{Incomplete OO-DOCI dissociation curve of $BN$ in the STO-6G orbital basis presenting an avoided crossing}\label{BN}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{CN+.png}
+  \caption{OO-DOCI dissociation curve of $CN^+$ in the STO-6G orbital basis presenting an avoided crossing}\label{CN+}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{CO++.png}
+  \caption{OO-DOCI dissociation curve of $CO^{2+}$ in the STO-6G orbital basis presenting an avoided crossing}\label{CO++}
+\end{figure}
+
 
 \subsubsection{14-electron diatomics}
 
-Preliminary results indicate a smooth curve dissociation curve for 14-electron systems, although some curves present outlying points that require recomputation.
+Preliminary results indicate a smooth curve dissociation curve for 14-electron systems, although some curves present outlying points that require recomputation (see figures \ref{CN-}, \ref{CO}, \ref{NO+} and \ref{O2++}).
 
-%INSERT FIGURES
+\begin{figure}
+  \includegraphics[width=\linewidth]{CN-.png}
+  \caption{Incomplete OO-DOCI dissociation curve of $CN^-$ in the STO-6G orbital basis}\label{CN-}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{CO.png}
+  \caption{OO-DOCI dissociation curve of $CO$ in the STO-6G orbital basis with a badly converged point}\label{CO}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{NO+.png}
+  \caption{Incomplete OO-DOCI dissociation curve of $NO^+$ in the STO-6G orbital basis with some badly converged points}\label{NO+}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{O2++.png}
+  \caption{Incomplete OO-DOCI dissociation curve of $O_2^{2+}$ in the STO-6G orbital basis with some badly converged points}\label{O2++}
+\end{figure}
 
 \subsection{cc-pVDZ}
 \subsubsection{Hydrogen polymer chains}
-Computations underway. Preliminary results seem to produce a smooth dissociation curve.
+Computations underway. Preliminary results seem to produce a smooth dissociation curves.
 
 \subsubsection{Homonuclear diatomics}
 Computations underway.
@@ -274,6 +330,8 @@ One issue that arises when computing these dissociation curves (as well as those
 \section{Acknowledgements}
 
 \section{Appendix}
+
+
 
 %%%END OF MAIN TEXT%%%
 
