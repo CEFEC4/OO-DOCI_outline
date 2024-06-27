@@ -245,7 +245,7 @@ The curves for $Be_2$, $B_2$ and $C_2$ however, consistently produced curves tha
   \caption{OO-DOCI dissociation curve of $C_2$ in the STO-6G orbital basis presenting an avoided crossing}\label{C2}
 \end{figure}
 
-Various approaches have been attempted (with $B_2$ and $C_2$ specifically) to improve the optimisation's results :
+Various approaches have been attempted (with $B_2$ and $C_2$ specifically) in attempts to see if the optimisation's results could be improved or if the avoided crossings that were observed were indeed the optimal result (for DOCI in the given orbital basis) :
 
 \begin{itemize}
   \item Points were computed with a significantly higher maximum number of iterations for the CMA-ES algorithm.
@@ -254,7 +254,12 @@ Various approaches have been attempted (with $B_2$ and $C_2$ specifically) to im
   \item Computations were done using CISD natural orbitals as an initial guess.
 \end{itemize}
 
-All these approaches converged on the same results as the initial brute-force attempt.
+All these approaches converged on the same results as the initial brute-force attempt. Two other approaches are being investigated before we conclude that the curves that were obtained are indeed correct :
+
+\begin{itemize}
+  \item DOCI orbitals are being optimised based on the angles of Jacobi rotations between orbitals that share an irreductible representation within an Abelian symmetry point group of the molecule (both $D_{2h}$ and $C_{2v}$ for homonuclear molecules, $C_{2v}$ for heteronuclear molecules)
+  \item FCI natural orbitals are being computed, in order to use them as an initial guess for the DOCI orbitals.
+\end{itemize}
 
 \subsubsection{12-electron diatomics}
 
@@ -323,7 +328,7 @@ Computations underway.
 \subsubsection{14-electron diatomics}
 Computations underway.
 
-One issue that arises when computing these dissociation curves (as well as those for $N_2$, $O_2$, $F_2$ and $Ne_2$) is that the maximal computation time allowed on some compute canada clusters is 7 days, but the computation of even a single point for systems with 14 electrons or more in the cc-pVDZ orbital basis takes more time than that. The cluster cedar allows for longer computations, but the possibility of segmenting CMA-ES optimisation for a single point should be investigated and implemented if possible. 
+One issue that arises when computing these dissociation curves (as well as those for $N_2$, $O_2$, $F_2$ and $Ne_2$) is that the maximal computation time allowed on some compute canada clusters is 7 days, but the computation of even a single point for systems with 14 electrons or more in the cc-pVDZ orbital basis takes more time than that. The cedar cluster allows for longer computations, but the possibility of segmenting CMA-ES optimisation for a single point should be investigated and implemented if possible. 
 
 \section{Conclusions}
 
